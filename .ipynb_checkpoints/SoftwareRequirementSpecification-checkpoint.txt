@@ -1,0 +1,27 @@
+SOFTWARE REQUIREMENTS SPECIFICATION (SRS)
+Project Title: Customer Sentiment Analysis on Flipkart Product Reviews
+
+1. INTRODUCTION
+1.1 Purpose
+This document provides a comprehensive overview of the Requirements Specification for the Customer Sentiment Analysis system. It describes the data pipeline, processing frameworks, and visual tracking requirements used to understand buyer behavior on Flipkart.
+
+1.2 Scope
+The scope of this system involves processing text-based consumer reviews and categorical ratings extracted from Flipkart. It implements text processing algorithms to compute consumer sentiment scores and classifies them into distinct operational buckets (Positive, Negative, Neutral).
+
+2. SYSTEM OVERVIEW & REQUIRMENTS
+2.1 Functional Requirements
+- Data Ingestion: The system must successfully accept data inputs via flat files (.csv) containing structural columns: Unnamed: 0, Product_name, Review, and Rating.
+- Text Preprocessing: System must automate lower-casing, removal of non-alphabetic special characters/emojis, and removal of English grammar stopwords.
+- Sentiment Modeling: System must utilize Natural Language Processing (NLP) tools to calculate polarity parameters and map them to sentiment metrics.
+- Visual Reporting: System must accurately render data distributions using graphical charts (Bar charts and Stacked distribution charts).
+
+2.2 Non-Functional Requirements
+- Accuracy: Polarity metrics should align meaningfully with user-provided star-ratings (e.g., 5-star ratings should highly correlate with Positive sentiment).
+- Performance & Scalability: Data processing execution time must remain minimal (processing batches of ~2300 entries in under 5 seconds).
+
+3. SYSTEM DATA ARCHITECTURE
+3.1 Dataset Schema
+- Unnamed: 0 (int64): Database auto-incremented index token.
+- Product_name (String): Identity designation text of the item sold.
+- Review (String): Descriptive literal user experience assessment text.
+- Rating (int64): Numeric quantitative satisfaction marker bounded between 1 to 5 stars.
